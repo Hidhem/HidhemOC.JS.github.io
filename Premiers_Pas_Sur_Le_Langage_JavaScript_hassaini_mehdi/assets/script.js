@@ -17,35 +17,10 @@ const slides = [
 	}
 ]
 
-/* interaction user avec les fléches du caroussel */
-
 let slideLeftArrow = document.querySelector("#banner .arrow_left")
-
 let slideRightArrow = document.querySelector("#banner .arrow_right")
-
 let slidePictureTitle = document.querySelector(".banner-txt")
-
 let i=0
-
-let dotSlide = document.querySelectorAll(".dot")
-
-	let rightArrowEvent = slideRightArrow
-	rightArrowEvent.addEventListener ("click", (pointerEvent, event) => {
-	i++;
-	let switchImage = document.querySelector(".banner-img")
-	switchImage.setAttribute("src", slides[i].image)
-	let p = `${slides[i].tagLine}`
-	slidePictureTitle.innerHTML = p
-	})
-
-	let leftArrowEvent = slideLeftArrow
-	leftArrowEvent.addEventListener ("click", (pointerEvent, event) => {
-	i--;
-	let switchImage = document.querySelector(".banner-img")
-	switchImage.setAttribute("src", slides[i].image)
-	let p = `${slides[i].tagLine}`
-	slidePictureTitle.innerHTML = p
-	})
 
 /* Bullet point du slider */ 
 
@@ -55,3 +30,43 @@ for (let i = 0; i < slides.length; i++){
 	addedBulletPoint.setAttribute("class", "dot");
 	parentBulletPoint.appendChild(addedBulletPoint);
 }
+
+/* interaction user avec les flèches du caroussel */
+
+	/* flèche de droite */
+
+		let rightArrowEvent = slideRightArrow
+		rightArrowEvent.addEventListener ("click", (pointerEvent, event) => {
+		i++;
+		
+		/* boucle du slide*/
+		if (i>=4){i=0};
+		
+		/* scroll des photo du slide */
+		let switchImage = document.querySelector(".banner-img")
+		switchImage.setAttribute("src", slides[i].image);
+		
+		/* affichage des textes selon les photo */
+		let p = `${slides[i].tagLine}`
+		slidePictureTitle.innerHTML = p
+	})
+
+
+	/* flèche de gauche */
+
+		let leftArrowEvent = slideLeftArrow
+		leftArrowEvent.addEventListener ("click", (pointerEvent, event) => {
+		i--;
+
+		/* boucle du slide*/
+		if (i < 0){i=3};
+
+		/* scroll des photo du slide */
+		let switchImage = document.querySelector(".banner-img")
+		switchImage.setAttribute("src", slides[i].image)
+
+		/* affichage des textes selon les photo */ 
+		let p = `${slides[i].tagLine}`
+		slidePictureTitle.innerHTML = p
+	
+	})
