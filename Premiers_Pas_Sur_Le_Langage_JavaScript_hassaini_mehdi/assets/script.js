@@ -22,16 +22,18 @@ let slideRightArrow = document.querySelector("#banner .arrow_right")
 let slidePictureTitle = document.querySelector(".banner-txt")
 let i=0
 
+
 /* Bullet point du slider */ 
 
-for (let i = 0; i < slides.length; i++){
+for (let i = 1; i < slides.length; i++){
 	let parentBulletPoint = document.querySelector(".dots");
 	let addedBulletPoint = document.createElement("span");
-	addedBulletPoint.setAttribute("class", "dot");
+	addedBulletPoint.setAttribute("class", "dot ");
 	parentBulletPoint.appendChild(addedBulletPoint);
 }
 
 /* interaction user avec les flèches du caroussel */
+
 
 	/* flèche de droite */
 
@@ -40,7 +42,7 @@ for (let i = 0; i < slides.length; i++){
 		i++;
 		
 		/* boucle du slide*/
-		if (i>=4){i=0};
+		if (i>=4){i=0;};
 		
 		/* scroll des photo du slide */
 		let switchImage = document.querySelector(".banner-img")
@@ -48,7 +50,24 @@ for (let i = 0; i < slides.length; i++){
 		
 		/* affichage des textes selon les photo */
 		let p = `${slides[i].tagLine}`
-		slidePictureTitle.innerHTML = p
+		slidePictureTitle.innerHTML = p;
+
+		/* switch slider bullet point */
+		let BulletSwitch = document.querySelectorAll(".dot");	
+		BulletSwitch[i].setAttribute("class", "dot dot_selected");
+		BulletSwitch[i-1].setAttribute("class", "dot");
+		if (BulletSwitch = BulletSwitch.length){
+			
+		}
+		
+
+		/*
+		if (BulletSwitch = i){
+			BulletSwitch.setAttribute("class", "dot dot_selected");
+		} else {
+			BulletSwitch.setAttribute("class", "dot");
+		}
+		*/
 	})
 
 
