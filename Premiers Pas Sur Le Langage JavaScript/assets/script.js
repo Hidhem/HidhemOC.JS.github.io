@@ -52,7 +52,8 @@ slideLeftArrow.addEventListener ("click", (PointerEvent) => {
 	/* modification du titre et du paragraphe sur le slider en fonction de l'image avec INNERHTML */ 
 	let p=`${slides[index].tagLine}`
 	slideBannerText.innerHTML = p;
-	/* Ajout du bullet point actif et suppression des anciens */ 
+	/* Ajout du bullet point actif et suppression des anciens */
+	let bulletSwitch = document.querySelectorAll(".dot"); 
 	for (let i = 0; i < bulletSwitch.length; i++) {
 		bulletSwitch[i].classList.remove("dot_selected")}
 	bulletSwitch[index].classList.add("dot_selected");
